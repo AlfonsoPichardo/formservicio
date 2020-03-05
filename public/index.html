@@ -14,13 +14,13 @@
     <p><input type="text" id="descr" placeholder="DESCRIPCION: "></p>
 	<p>
 	<button type="submit">Describir</button>
-    <form action="javascript:recomendarHttp();">
+    <form action="javascript:recomendar();">
 	</p>
       <footer>Copyright &copy; 2020 Pichardo Vilchis ALfonso.</footer>
     </form>
     <script>
 
-	async function recomendarHttp(){
+	async function recomendar(){
 	try{
 	const respuestaHttp=
 		await fetch("recom?estado"
