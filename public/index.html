@@ -8,13 +8,13 @@
   </head>
   <body>
     <h1>Servicios</h1>
-    <form action="javascript:saludaHttp();">
-      <p><input type="text" id="nombre1" placeholder="Nombre 1"></p>
-      <p><input type="text" id="nombre2" placeholder="Nombre 2"></p>
+    <form action="javascript:recomHttp();">
+      <p><input type="text" id="est" placeholder="Estado: "></p>
+      <p><input type="text" id="desc" placeholder="Descripcion: "></p>
       <p>
-        <button type="submit">Saludar</button>
+        <button type="submit">Describir</button>
       </p>
-      <footer>Copyright &copy; 2020 Gilberto Pacheco Gallegos.</footer>
+      <footer>Copyright &copy; 2020 Pichardo Vilchis ALfonso.</footer>
     </form>
     <script>
       //@ts-check
@@ -27,7 +27,7 @@
        * función termina correctamente o con error en algún momento futuro.
        * @returns {Promise} para indicar cuando termina correctamente o con
        *  error. */
-      async function saludaHttp() {
+      async function recomHttp() {
         try {
           /** La función fetch envía los datos al servidor. El texto que recibe
            * como parámetro es la url que se invoca. El signo de interrogación
@@ -44,11 +44,11 @@
            * de la operación y toma la respuesta devuelta por el servidor.
            * @type {Response} */
           const respuestaHttp =
-            await fetch("saludo?nombre1="
+            await fetch("recom?est="
               // @ts-ignore
-              + encodeURIComponent(nombre1.value.trim())
+              + encodeURIComponent(est.value.trim())
               // @ts-ignore
-              + "&nombre2=" + encodeURIComponent(nombre2.value.trim()));
+              + "&desc=" + encodeURIComponent(desc.value.trim()));
           /* La property ok de la respuesta vale true si la conexión terminó
            * con éxito. */
           if (respuestaHttp.ok) {
