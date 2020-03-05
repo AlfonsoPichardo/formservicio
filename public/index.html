@@ -28,8 +28,6 @@
 			+ "&descr=" + encodeURIComponent(descr.value.trim()));
 			
 		if(respuestaHttp.ok){
-		
-		
 			const texto=await respuestaHttp.text();
 			alert(texto);
 		}else{
