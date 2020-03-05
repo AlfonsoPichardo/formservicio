@@ -6,37 +6,71 @@
     <title>Servicios</title>
     <link rel="stylesheet" href="estilos.css">
   </head>
-  <h1> HOLA POR FAVOR INDICA EL ESTADO DE LA REPUBLICA EN DÓNDE TE ENCUENTRAS Y TU DESCRIPCION DEL MISMO </h1>
-<body>
-	<h1>Servicios</h1>
-	<br><br>
-	<p><input type="text" id="estado" placeholder="ESTADO: "></p>
-    <p><input type="text" id="descr" placeholder="DESCRIPCION: "></p>
-	<p>
-	<button type="submit">Describir</button>
-    <form action="javascript:recomendar();">
-	</p>
-      <footer>Copyright &copy; 2020 Pichardo Vilchis ALfonso.</footer>
+  <body>
+    <h1>Servicios</h1>
+    <form action="javascript:recomendareHttp();">
+      <p><input type="text" id="estado" placeholder="ESTADO: "></p>
+      <p><input type="text" id="descr" placeholder="DESCRIPCION: "></p>
+      <p>
+        <button type="submit">DESCRIBIR </button>
+      </p>
+      <footer>Copyright &copy; 2020 Pichardo Vilchis Alfonso.</footer>
     </form>
     <script>
+      //@ts-check
 
-	async function recomendar(){
-	try{
-	const respuestaHttp=
-		await fetch("recom?estado"
-			+ encodeURIComponent(estado.value.trim())
-			+ "&descr=" + encodeURIComponent(descr.value.trim()));
-			
-		if(respuestaHttp.ok){
-			const texto=await respuestaHttp.text();
-			alert(texto);
-		}else{
-			throw new Error(respuestaHttp.statusText)
-		}
-	}catch (e){
-		alert(e.message)
-		}
-	}	
-	</script>
-</body>
+      /** Envía los datos a la función en Internet. El modificador async indica
+       * que la función probablemente no termine en el hilo principal y algunas
+       * de sus instrucciones continuen en otro hilo. En este caso, como la
+       * comunicación con el servidor puede ser tardada se realiza en otro hilo.
+       * Se devuelve un objeto de tipo Promise que sirve para saber cuando la
+       * función termina correctamente o con error en algún momento futuro.
+       * @returns {Promise} para indicar cuando termina correctamente o con
+       *  error. */
+      async function recomendarHttp() {
+        try {
+          /** La función fetch envía los datos al servidor. El texto que recibe
+           * como parámetro es la url que se invoca. El signo de interrogación
+           * "?" permite pasarle parámetros y encodeURIComponent formatea la
+           * información para que se puede colocar en la URL. El signo "&"
+           * separa los parámetros. En este caso se envían los parámetros
+           * "nombre1" y "nombre2", tomados de la interfaz gráfica.
+           * nombre1.value.trim() toma la captura de id="nombre1" y le quita los
+           *        espacios y saltos de línea al inicio y al final.
+           * fetch lanza la comunicación con el servidor en otro hilo, devuelve
+           * una Promise para saber en que momento termina y trata de seguir a
+           * la siguiente instrucción antes que la comunicación termine.
+           * El operador await fuerza a esperar que la Promise indique el final
+           * de la operación y toma la respuesta devuelta por el servidor.
+           * @type {Response} */
+          const respuestaHttp =
+            await fetch("recomendar?estado="
+              // @ts-ignore
+              + encodeURIComponent(estado.value.trim())
+              // @ts-ignore
+              + "&descr=" + encodeURIComponent(descr.value.trim()));
+          /* La property ok de la respuesta vale true si la conexión terminó
+           * con éxito. */
+          if (respuestaHttp.ok) {
+            /* En esta parte del if, la conexión terminó con éxito. Hay que
+             * mostrar el texto del servidor usando la instrucción
+             * respuestaHttp.text(); como este proceso puede ser tardado,
+             * se ejecuta en otro hilo y devuelve una Promise. Con await espera
+             * a que termine este proceso. */
+            const texto = await respuestaHttp.text();
+            alert(texto);
+          } else {
+            /* En esta parte del if, la conexión termina con errores. Se
+             * lanza una excepción que es atrapada por la función del
+             * catch en la línea 109. La expresión respuestaHttp.statusText
+             * devuelve un texto describiendo el error, que normalmente está
+             * en inglés. */
+            throw new Error(respuestaHttp.statusText)
+          }
+        } catch (e) {
+          alert(e.message)
+        }
+      }
+    </script>
+  </body>
 </html>
