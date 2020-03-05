@@ -22,7 +22,7 @@ exports.saludo = functions.https.onRequest(
       /* Solo se llega a esta parte si nombre1 y nombre 2 tienen un texto.
        * Devuelve un saludo. */
       response.send(
-        `Saludos a ${request.query.estado1} y a ${request.query.desc2}`);
+        `El estado:  ${request.query.estado1} es: ${request.query.desc2}`);
     } catch (e) {
       // Devuelve un texto de error.
       response.send(e.message);
