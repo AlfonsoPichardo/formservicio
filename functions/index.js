@@ -3,7 +3,7 @@
 const functions = require('firebase-functions');
 
 /* Se exporta la función sobre https llamada "saludo". */
-exports.recom = functions.https.onRequest(
+exports.saludo = functions.https.onRequest(
   /** Código para la función saludo.
    * @param {{query:Object}} request solicitud que recibe el servidor.
    * Corresponde a la librería Express.
@@ -12,17 +12,17 @@ exports.recom = functions.https.onRequest(
   (request, response) => {
     try {
       // verifica que el parámetro nombre1 recibido del navegador esté correcto.
-      if (!request.query.est) {
+      if (!request.query.estado1) {
         // Entra aquí si el nombre1 es null, undefined o ""
-        throw new Error("Falta El Estado:");
-      } else if (!request.query.desc) {
+        throw new Error("Falta el Estado:");
+      } else if (!request.query.desc2) {
         // Entra aquí si el nombre2 es null, undefined o ""
-        throw new Error("Falta La Descripcion: ");
+        throw new Error("Falta la Descripcion: ");
       }
       /* Solo se llega a esta parte si nombre1 y nombre 2 tienen un texto.
        * Devuelve un saludo. */
       response.send(
-        `El Estado: ${request.query.est} Es: ${request.query.desc}`);
+        `Saludos a ${request.query.estado1} y a ${request.query.desc2}`);
     } catch (e) {
       // Devuelve un texto de error.
       response.send(e.message);
