@@ -1,77 +1,106 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<h1> HOLA POR FAVOR INDICA EL ESTADO DE LA REPUBLICA EN DÓNDE TE ENCUENTRAS Y TU DESCRIPCION DEL MISMO </h1>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Servicios</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Index </title>
+      <body background ="img\images.jpg" bigcolor="FFCECB">
+      <meta charset="utf-8">
+      <meta name="description" content="Este es un documento HTML5">
+      <meta name="keywords" content="HTML, CSS, JavaScript">
+      <link rel="stylesheet" href="estiloban.css">
+     
   </head>
   <body>
-    <h1>Servicios</h1>
-    <form action="javascript:saludaHttp();">
-      <p><input type="text" id="estado1" placeholder="Estado: "></p>
-      <p><input type="text" id="desc2" placeholder="Descripcion: "></p>
-      <p>
-        <button type="submit">Describir</button>
-      </p>
-      <footer>Copyright &copy; 2020 Pichardo Vilchis Alfonso.</footer>
-    </form>
-    <script>
-      //@ts-check
+    <header id="cabeceralogo">
+      <div>
+        <center><h1>RECOMENDACIONES CON SERVICIOS</h1></center>
+      </div>
+    </header>
+  <main>
+    <div>
+      
+      <section id="articulosprincipales">
+				  <body>
+						<h1>Servicios</h1>
+						<form action="javascript:saludaHttp();">
+						  <p><input type="text" id="estado1" placeholder="Estado: "></p>
+						  <br>
+						  <p><input type="text" id="desc2" placeholder="Descripcion: "></p>
+						  <p>
+							<button type="submit">Describir</button>
+						  </p>
+						</form>
+							<script>
+								  //@ts-check
 
-      /** Envía los datos a la función en Internet. El modificador async indica
-       * que la función probablemente no termine en el hilo principal y algunas
-       * de sus instrucciones continuen en otro hilo. En este caso, como la
-       * comunicación con el servidor puede ser tardada se realiza en otro hilo.
-       * Se devuelve un objeto de tipo Promise que sirve para saber cuando la
-       * función termina correctamente o con error en algún momento futuro.
-       * @returns {Promise} para indicar cuando termina correctamente o con
-       *  error. */
-      async function saludaHttp() {
-        try {
-          /** La función fetch envía los datos al servidor. El texto que recibe
-           * como parámetro es la url que se invoca. El signo de interrogación
-           * "?" permite pasarle parámetros y encodeURIComponent formatea la
-           * información para que se puede colocar en la URL. El signo "&"
-           * separa los parámetros. En este caso se envían los parámetros
-           * "nombre1" y "nombre2", tomados de la interfaz gráfica.
-           * nombre1.value.trim() toma la captura de id="nombre1" y le quita los
-           *        espacios y saltos de línea al inicio y al final.
-           * fetch lanza la comunicación con el servidor en otro hilo, devuelve
-           * una Promise para saber en que momento termina y trata de seguir a
-           * la siguiente instrucción antes que la comunicación termine.
-           * El operador await fuerza a esperar que la Promise indique el final
-           * de la operación y toma la respuesta devuelta por el servidor.
-           * @type {Response} */
-          const respuestaHttp =
-            await fetch("saludo?estado1="
-              // @ts-ignore
-              + encodeURIComponent(estado1.value.trim())
-              // @ts-ignore
-              + "&desc2=" + encodeURIComponent(desc2.value.trim()));
-          /* La property ok de la respuesta vale true si la conexión terminó
-           * con éxito. */
-          if (respuestaHttp.ok) {
-            /* En esta parte del if, la conexión terminó con éxito. Hay que
-             * mostrar el texto del servidor usando la instrucción
-             * respuestaHttp.text(); como este proceso puede ser tardado,
-             * se ejecuta en otro hilo y devuelve una Promise. Con await espera
-             * a que termine este proceso. */
-            const texto = await respuestaHttp.text();
-            alert(texto);
-          } else {
-            /* En esta parte del if, la conexión termina con errores. Se
-             * lanza una excepción que es atrapada por la función del
-             * catch en la línea 109. La expresión respuestaHttp.statusText
-             * devuelve un texto describiendo el error, que normalmente está
-             * en inglés. */
-            throw new Error(respuestaHttp.statusText)
-          }
-        } catch (e) {
-          alert(e.message)
+								  /** Envía los datos a la función en Internet. El modificador async indica
+								   * que la función probablemente no termine en el hilo principal y algunas
+								   * de sus instrucciones continuen en otro hilo. En este caso, como la
+								   * comunicación con el servidor puede ser tardada se realiza en otro hilo.
+								   * Se devuelve un objeto de tipo Promise que sirve para saber cuando la
+								   * función termina correctamente o con error en algún momento futuro.
+								   * @returns {Promise} para indicar cuando termina correctamente o con
+								   *  error. */
+								  async function saludaHttp() {
+									try {
+									  /** La función fetch envía los datos al servidor. El texto que recibe
+									   * como parámetro es la url que se invoca. El signo de interrogación
+									   * "?" permite pasarle parámetros y encodeURIComponent formatea la
+									   * información para que se puede colocar en la URL. El signo "&"
+									   * separa los parámetros. En este caso se envían los parámetros
+									   * "nombre1" y "nombre2", tomados de la interfaz gráfica.
+									   * nombre1.value.trim() toma la captura de id="nombre1" y le quita los
+									   *        espacios y saltos de línea al inicio y al final.
+									   * fetch lanza la comunicación con el servidor en otro hilo, devuelve
+									   * una Promise para saber en que momento termina y trata de seguir a
+									   * la siguiente instrucción antes que la comunicación termine.
+									   * El operador await fuerza a esperar que la Promise indique el final
+									   * de la operación y toma la respuesta devuelta por el servidor.
+									   * @type {Response} */
+									  const respuestaHttp =
+										await fetch("saludo?estado1="
+										  // @ts-ignore
+										  + encodeURIComponent(estado1.value.trim())
+										  // @ts-ignore
+										  + "&desc2=" + encodeURIComponent(desc2.value.trim()));
+									  /* La property ok de la respuesta vale true si la conexión terminó
+									   * con éxito. */
+									  if (respuestaHttp.ok) {
+										/* En esta parte del if, la conexión terminó con éxito. Hay que
+										 * mostrar el texto del servidor usando la instrucción
+										 * respuestaHttp.text(); como este proceso puede ser tardado,
+										 * se ejecuta en otro hilo y devuelve una Promise. Con await espera
+										 * a que termine este proceso. */
+										const texto = await respuestaHttp.text();
+										alert(texto);
+									  } else {
+										/* En esta parte del if, la conexión termina con errores. Se
+										 * lanza una excepción que es atrapada por la función del
+										 * catch en la línea 109. La expresión respuestaHttp.statusText
+										 * devuelve un texto describiendo el error, que normalmente está
+										 * en inglés. */
+										throw new Error(respuestaHttp.statusText)
+									  }
+									} catch (e) {
+									  alert(e.message)
+									}
+								  }
+							</script>
+    </section>
+    </div>
+	<script>
+      customElements.define("foooter-web", class extends HTMLElement {
+        connectedCallback() {
+          
+          this.innerHTML = "Copyright &copy; 2020 Pichardo Vilchis Alfonso";
         }
-      }
+        
+      });
     </script>
+	
+  </main>
+  <center>
+   <foooter-web id="fantasma"></foooter-web>
+  </center>
   </body>
-</html>
+  </html>
+  

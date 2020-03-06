@@ -1,0 +1,164 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#cabeceralogo {
+	display: flex;
+	justify-content: center;
+	width: 94%;
+	height: 80px;
+	margin: 12px 13px 0px 12px;
+	padding: 0% 2%;
+	background-color: #56728151;
+}
+#cabeceralogo > div {
+	flex: 1;
+	max-width: 960px;
+	padding: 2px;
+}
+#cabeceralogo h1 {
+	font: bold 48px Arial  , sans-serif;
+	color: #111111;
+}
+#menuprincipal {
+	display: flex;
+	justify-content: center;
+	width: 94%;
+	height: 50px;
+	margin: 0px 13px 0px 12px;
+	padding: 0% 2%;
+	background-color: #999999;
+	border-top: 5px solid #111111;
+	border-bottom: 5px solid #111111;
+}
+#menuprincipal > div {
+	flex: 19;
+	max-width: 960px;
+	margin: 0px 5px 0px 5px;
+}
+#menuprincipal li {
+	display: inline-block;
+	height: 35px;
+	padding: 15px 10px 0px 10px;
+	margin-right: 5px;
+}
+#menuprincipal li:hover {
+	background-color: blue;
+}
+#menuprincipal a {
+	font: bold 18px Arial, sans-serif;
+	color: #111111;
+	text-decoration: none;
+}
+main {
+	display: flex;
+	justify-content: center;
+	width: 96%;
+	padding: 2%;
+	background-image: url("fondo.jpg");
+}
+main > div {
+	display: flex;
+	flex: 1;
+	max-width: 960px;
+}
+#articulosprincipales {
+	flex: 1;
+	margin-right: 20px;
+	text-align: justify;
+	padding-top: 30px;
+	background-color: #56728151;
+	border-radius: 10px;
+}
+#infoadicional {
+	width: 280px;
+	padding: 20px;
+	height: 480px;
+	background-color: #56728151;
+	border-radius: 10px;
+}
+#infoadicional h1 {
+	font: bold 18px Arial, sans-serif;
+	color: #111111;
+	margin-bottom: 15px;
+}
+article {
+	position:  relative;
+	padding: 0px 40px 20px 40px;
+}
+article time {
+	display: block;
+	position: absolute;
+	top: -5px;
+	left: -70px;
+	width: 80px;
+	padding: 15px 5px;
+	background-color: #094660;
+	box-shadow: 3px 3px 5px rgba(100, 100, 100, 0.7);
+	border-radius: 5px;
+}
+.numerodia {
+	font: bold 36px Verdana, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+}
+.nombredia {
+	font: 12px Verdana, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+}
+.parrafo{
+	text-align:
+	justify;
+}
+article h1 {
+	margin-bottom: 5px;
+	font: bold 30px Georgia, sans-serif;
+}
+article p {
+	font: 18px Georgia, sans-serif;
+}
+figure {
+	margin: 10px 0px;
+}
+figure img {
+	max-width: 98%;
+	padding: 1%;
+}
+#pielogo {
+	display: flex;
+	justify-content: center;
+	width: 94%;
+	margin: 0px 13px 12px 0px;
+	padding: 2%;
+	background-color: #117FF9C8;
+}
+#pielogo > div {
+	display: flex;
+	flex: 1;
+	max-width: 960px;
+	background-color: #56728151;
+	border-radius: 10px;
+}
+#foooter-web {
+        position: absolute;
+        font-size: 25px;
+      }
+	  
+.seccionpie {
+	flex: 1;
+	padding: 20px;
+}
+.seccionpie h1 {
+	font: bold 20px Arial, sans-serif;
+}
+.seccionpie p {
+	margin-top: 5px;
+}
+
+.seccionpie a {
+	font: bold 16px Arial, sans-serif;
+	color: #111111;
+	text-decoration: none;
+}
